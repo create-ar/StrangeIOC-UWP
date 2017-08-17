@@ -1,0 +1,29 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFrameworks>net35-client</TargetFrameworks>
+    <RootNamespace>Strange</RootNamespace>
+    <AssemblyName>Strange.Net35</AssemblyName>
+    <AssemblyVersion>0.1.0</AssemblyVersion>
+    <Version>0.1.0</Version>
+    <Description>Strange Ioc.</Description>
+    <IncludeSymbols>True</IncludeSymbols>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <DocumentationFile>bin\Debug\Strange.Net35.xml</DocumentationFile>
+    <DebugType>full</DebugType>
+    <DebugType Condition="'$(Configuration)' == 'Release'">pdbonly</DebugType>
+  </PropertyGroup>
+
+  <!--https://github.com/dotnet/sdk/issues/294-->
+  <PropertyGroup Condition="'$(TargetFramework)' == 'net35-client'">
+    <TargetFrameworkIdentifier>.NETFramework</TargetFrameworkIdentifier>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <TargetFrameworkProfile>client</TargetFrameworkProfile>
+    <!-- Workaround for 'dotnet build' https://github.com/Microsoft/msbuild/issues/1333-->
+    <FrameworkPathOverride>C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v3.5\Profile\Client</FrameworkPathOverride>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net35-client|AnyCPU'">
+    <TreatSpecificWarningsAsErrors />
+    <OutputPath>bin\Debug</OutputPath>
+  </PropertyGroup>
+</Project>
